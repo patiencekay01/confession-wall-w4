@@ -1,9 +1,10 @@
 const display = document.getElementById('container')
 const form = document.getElementById('form')
+const baseURL = 'http://localhost:3000'
 
 async function loadMessages() {
-    const confessionInput = await fetch('/confessions')
-    const outputs = await response.json()
+    const confessionInput = await fetch(`${baseURL}/confessions`)
+    const outputs = await confessionInput.json()
 
     console.log(outputs)
 
@@ -14,7 +15,7 @@ async function printMessages() {
     const outputs = await loadMessages()
 
     outputs.forEach((output) => {
-        const container = document.createElement('container')
+        const div = document.createElement('div')
         const displayName = document.createElement('p')
         const confessionMessage = document.createElement('p')
 
@@ -35,7 +36,7 @@ async function confirmSubmit(e) {
     const userMessage = Object.fromEntries(formData)
     const stringifyMessage = JSON.stringify(userMessage)
 
-    const response = await fetch('/messages', {
+    const response = await fetch(`${baseURL}/confessions`, {
         headers: {
             "Content-Type": "application/json"
         },

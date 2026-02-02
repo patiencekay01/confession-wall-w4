@@ -1,4 +1,4 @@
-import express, { response } from "express"
+import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
 import pg from "pg"
@@ -17,7 +17,7 @@ app.get('/', (request, response) => {
     response.json('Connected')
 })
 
-app.get('/confessions', async (req, res) => {
+app.get('/confessions', async (request, response) => {
     const data = await db.query(`SELECT * FROM confessions`)
     const confessions = data.rows
     response.status(200).json(confessions)
@@ -26,7 +26,7 @@ app.get('/confessions', async (req, res) => {
 app.post('/confessions', async (request, response) => {
     const input = request.body
 
-const insertMessages = await db.query(`INSERT INTO confessions (display_name, messages) VALUES ($1, $2)`, [input.displayName, input.messages])
+await db.query(`INSERT INTO confessions (display_name, messages) VALUES ($1, $2)`, [input.displayName, input.messages])
 
 response.status(200).json({alert: "confession added!"})
 })
