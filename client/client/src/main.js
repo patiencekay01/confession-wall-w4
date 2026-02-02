@@ -1,6 +1,6 @@
 const display = document.getElementById('container')
 const form = document.getElementById('form')
-const baseURL = 'http://localhost:3000'
+const baseURL = 'https://confession-wall-w4-client2.onrender.com/'
 
 async function loadMessages() {
     const confessionInput = await fetch(`${baseURL}/confessions`)
