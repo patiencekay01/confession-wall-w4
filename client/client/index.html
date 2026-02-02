@@ -5,16 +5,25 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>client</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src\style.css">
   </head>
+  
   <body>
-  <div id="container"></div>
+  <header>
+    <h1>Confession Wall</h1>
+    <h2> What's your secret?</h2>
+  </header>
 
   <form id="form"> 
-  <input type="text" name="displayName" />
+  <label for="displayName">Display Name:</label>
+  <input type="text"  name="displayName" />
+
+  <label for="messages">Confession:</label>
   <input type="text" name="messages">  
   <button type="submit"> Submit </button>
   </form>
+  
+  <div id="container"></div>
 
     <script type="module" src="/src/main.js"></script>
   </body>
