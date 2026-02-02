@@ -20,7 +20,7 @@ async function printMessages() {
         const confessionMessage = document.createElement('p')
 
         displayName.textContent = output.display_name
-        confessionMessage.textContent = output.message
+        confessionMessage.textContent = output.messages
 
         div.append(displayName, confessionMessage)
 
